@@ -1,0 +1,30 @@
+Question:
+
+Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+Check the assertion tests for examples.
+
+Question Link: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/sorted-union
+
+Solution:
+
+function uniteUnique(...arr) {
+  let resultArray = [];
+  let ArrayObj = {};
+  for(let i = 0; i < arr.length; i++)
+  {
+    let temArr = arr[i];
+    for(let j = 0; j < temArr.length; j++)
+    {
+        if(!ArrayObj.hasOwnProperty(temArr[j]))
+        {
+          resultArray.push(temArr[j]);
+          ArrayObj[temArr[j]] = true;
+        }
+    }
+  }
+  return resultArray;
+}
+
+uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]);
