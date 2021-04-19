@@ -1,0 +1,24 @@
+Question:
+
+Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+Question Link: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/convert-html-entities
+
+Solution:
+
+function convertHTML(str) {
+  let resultStr = '';
+  for(let i = 0; i < str.length; i++)
+  {
+    if(str[i] == '<') resultStr += '&lt;';
+    else if(str[i] == '>') resultStr += '&gt;';
+    else if(str[i] == '"') resultStr += '&quot;';
+    else if(str[i] == "'") resultStr += '&apos;';
+    else if(str[i] == "&") resultStr += '&amp;';
+    else resultStr += str[i];
+  }
+
+  return resultStr;
+}
+
+convertHTML("abc");
