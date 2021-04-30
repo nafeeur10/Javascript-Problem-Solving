@@ -1,0 +1,41 @@
+function smallestCommons(arr) {
+  let smallest = arr[0];
+  let largest = arr[1];
+
+  if(smallest > largest)
+  {
+    smallest = arr[1];
+    largest = arr[0];
+  }
+
+  let ans = lcm(smallest, smallest+1);
+
+  for(let i = smallest + 2; i <= largest; i++)
+  {
+    ans = lcm(i, ans);
+  }
+
+  console.log(ans);
+  return ans;
+}
+
+function lcm(a, b)
+{
+  return (a*b)/(gcd(a, b));
+}
+
+function gcd(a, b)
+{
+  let gcdValue = 1;
+  for(let i = 2; i <= a; i++)
+  {
+    if(a%i==0 && b%i==0)
+    {
+       gcdValue = i;
+    }
+  }
+  return gcdValue;
+}
+
+
+smallestCommons([2,10]);
