@@ -1,0 +1,37 @@
+Problem Link: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/arguments-optional
+
+Solution: 
+/*
+
+If we don't declare argument then we will receive arguments from arguments[0], arguments[1] etc........
+
+Example Case: 
+addTogether(2)([3])
+
+If we get this type of function calling, it means function will return another function. For example
+
+function addTogether()
+{
+   return function(b)
+   {
+      console.log(b) // [3]
+   }
+}
+
+*/
+
+
+function addTogether() {
+  let a = arguments[0];
+  if(!(Number(a) === a)) return undefined; 
+  let b = arguments[1];
+
+  if(Number(b) === b) return a+b;
+  else if(b === undefined)
+  return function(b) {
+    if(Number(b) === b) return a+b;
+    else return undefined
+  }
+}
+
+addTogether("http://bit.ly/IqT6zt");
